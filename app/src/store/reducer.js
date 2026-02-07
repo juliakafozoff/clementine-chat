@@ -7,7 +7,7 @@ import keys from "./keys";
 // Check if token is expired on initialization
 const isTokenExpired = session.isTokenExpired();
 const hasValidToken = session.getAccessToken() && !isTokenExpired;
-const isLoggedInFromStorage = session.get(keys.isLoggedIn) == 'true';
+const isLoggedInFromStorage = session.get(keys.isLoggedIn) === 'true';
 
 const initialState = {
     isLoggedIn: hasValidToken && isLoggedInFromStorage,

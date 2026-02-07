@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import keys from "../store/keys";
-import { setKey, clearKeys, session, setStringifiedKey } from "../store/actions";
+import { setKey, clearKeys, setStringifiedKey } from "../store/actions";
 import { connect } from "react-redux";
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
@@ -23,10 +23,10 @@ function Login({
     const [rememberMe, setRememberMe] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const [redirectTo, setRedirectTo] = useState(null);
 
     useEffect(() => {
         clearKeys();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleSubmit = async e => {
@@ -83,7 +83,6 @@ function Login({
             closeMaskOnClick={false}
             customStyles={utils.rodalSmallVertical()}>
             <div className="container-fluid text-center">
-                {redirectTo && <Redirect push to={redirectTo} />}
                 <form onSubmit={handleSubmit}>
                     <h4 className="m-4">Login</h4>
                     <div className="row">

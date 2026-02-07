@@ -6,10 +6,8 @@ import conversationService from '../services/conversation';
 import messageService from '../services/message';
 import {
     ChatList,
-    ChatItem,
     MessageList,
-    Navbar,
-    Avatar
+    Navbar
 } from "react-chat-elements";
 import {swalError} from '../utils/swal';
 import noChatSelected from '../media/no-chat-selected.png';
@@ -39,6 +37,7 @@ function Chat({
             reloadConversationsAndMessages();
             scrollChat();
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -46,10 +45,11 @@ function Chat({
             setSelectedConversationId(session.startConversation);
             setKey(keys.startConversation, null);
         }
-    }, []);
+    }, [session.startConversation, setKey]);
 
     useEffect(() => {
         reloadConversations(keyword);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [keyword]);
 
     const reloadConversations = searchKeyword => {
@@ -61,8 +61,8 @@ function Chat({
                 }
 
                 let f = [];
-                let t = result.data;
-                t = t.forEach(x => {
+                const data = result.data;
+                data.forEach(x => {
                     x.members.forEach(member => {
                         if (member._id !== session.user._id) {
                             f.push({
@@ -94,8 +94,8 @@ function Chat({
                 }
 
                 let f = [];
-                let t = result.data;
-                t = t.forEach(x => {
+                const data = result.data;
+                data.forEach(x => {
                     x.members.forEach(member => {
                         if (member._id !== session.user._id) {
                             f.push({
@@ -116,6 +116,7 @@ function Chat({
 
     useEffect(() => {
         reloadMessages();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedConversationId]);
 
     const reloadMessages = () => {
@@ -241,7 +242,7 @@ function Chat({
                         <div className="col text-center">
                             {
                                 !selectedConversationId || messages.length === 0 ?
-                                    <img src={noChatSelected} className="no-chat-selected"/> :
+                                    <img src={noChatSelected} className="no-chat-selected" alt="No chat selected" /> :
                                     <MessageList
                                         className="message-list"
                                         lockable={true}

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import keys from "../store/keys";
-import {setKey, clearKeys, session, setStringifiedKey} from "../store/actions";
+import {setKey, clearKeys, setStringifiedKey} from "../store/actions";
 import {connect} from "react-redux";
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
@@ -25,6 +25,7 @@ function Signup({
 
     useEffect(() => {
         clearKeys();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleSubmit = e => {
