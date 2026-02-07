@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import keys from "../store/keys";
 import { setKey, clearKeys, setStringifiedKey } from "../store/actions";
 import { connect } from "react-redux";

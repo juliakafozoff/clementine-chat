@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import keys from '../store/keys';
-import { setKey, getKey, clearKeys } from '../store/actions';
+import { setKey, clearKeys } from '../store/actions';
 import { connect } from "react-redux";
 import sessionStorage from '../store/session';
 import { clearInactivityTimer } from '../utils/sessionTimeout';
@@ -41,12 +41,12 @@ function Header({
                         session.isLoggedIn !== true &&
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="#"
-                                    onClick={() => setKey(keys.showSignup, true)}>Signup</NavLink>
+                                <button className="nav-link" type="button" style={{background: 'none', border: 'none', cursor: 'pointer'}}
+                                    onClick={() => setKey(keys.showSignup, true)}>Signup</button>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="#"
-                                    onClick={() => setKey(keys.showLogin, true)}>Login</NavLink>
+                                <button className="nav-link" type="button" style={{background: 'none', border: 'none', cursor: 'pointer'}}
+                                    onClick={() => setKey(keys.showLogin, true)}>Login</button>
                             </li>
                         </ul>
                     }
@@ -60,10 +60,10 @@ function Header({
                                 <NavLink className="nav-link" to="/chat">Messages</NavLink>
                             </li>
                             <li className="nav-item dropdown li-username-header">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button className="nav-link dropdown-toggle" type="button" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background: 'none', border: 'none', cursor: 'pointer'}}>
                                     <span id="username-header">{session.user.name}</span>
-                                </a>
+                                </button>
                                 <div className="dropdown-menu dropdown-menu-right user-dropdown"
                                     aria-labelledby="navbarDropdownMenuLink">
                                     <button className="dropdown-item" onClick={handleLogout}>

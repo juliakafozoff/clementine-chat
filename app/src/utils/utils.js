@@ -41,7 +41,7 @@ export default class {
     static dayMonthYearFormat = date => moment(date).format('DD MMM YYYY')
     static getIp = async () => {
         const ipResponse = await axios.get(`https://api.ipify.org/?format=json`);
-        const ip = ipResponse && ipResponse.data && ipResponse.data.ip || '';
+        const ip = (ipResponse && ipResponse.data && ipResponse.data.ip) || '';
         return ip;
     }
 }

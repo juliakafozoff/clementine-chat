@@ -3,7 +3,7 @@ import conversationService from '../services/conversation';
 import {swalInfo} from '../utils/swal';
 import {connect} from "react-redux";
 import keys from "../store/keys";
-import {setKey, clearKeys, session, setStringifiedKey} from "../store/actions";
+import {setKey, clearKeys, setStringifiedKey} from "../store/actions";
 import { Redirect } from 'react-router';
 
 function User({

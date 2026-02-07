@@ -4,9 +4,6 @@ import store from '../store/store';
 import { setKey } from '../store/actions';
 import keys from '../store/keys';
 
-const TOKEN_KEY = 'accessToken';
-const REFRESH_TOKEN_KEY = 'refreshToken';
-
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_URL || 'http://localhost:4000',
 });
