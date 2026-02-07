@@ -1,0 +1,28 @@
+{
+  "name": "check-app",
+  "version": "1.0.0",
+  "description": "MERN Stack Chat Application with JWT Authentication",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run start:api\" \"npm run start:app\"",
+    "start:api": "cd api && npm start",
+    "start:app": "cd app && NODE_OPTIONS=--openssl-legacy-provider npm start",
+    "dev": "concurrently \"npm run dev:api\" \"npm run start:app\"",
+    "dev:api": "cd api && npm run dev",
+    "install:all": "cd api && npm install && cd ../app && npm install",
+    "install:api": "cd api && npm install",
+    "install:app": "cd app && npm install"
+  },
+  "keywords": [
+    "chat",
+    "mern",
+    "socket.io",
+    "jwt"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
