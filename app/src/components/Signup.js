@@ -54,7 +54,12 @@ function Signup({
         userService.signup(name, email, password)
             .then(result => {
                 if (result.error) {
-                    setErrorMessage(result.error);
+                    // Provide more helpful error messages
+                    let errorMsg = result.error;
+                    if (result.error === 'Network Error' || result.error.includes('Network')) {
+                        errorMsg = 'Unable to connect to server. Please check your connection or contact support.';
+                    }
+                    setErrorMessage(errorMsg);
                     setKey(keys.isLoading, false);
                     return;
                 }

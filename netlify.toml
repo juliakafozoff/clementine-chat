@@ -3,6 +3,9 @@ base = "app"
 command = "npm run build"
 publish = "build"
 
+# Environment variables should be set in Netlify UI:
+# REACT_APP_API_URL = your-backend-api-url (e.g., https://your-app.herokuapp.com)
+
 [[redirects]]
 from = "/*"
 to = "/index.html"
